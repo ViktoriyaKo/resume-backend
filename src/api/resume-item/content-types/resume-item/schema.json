@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resume_items",
+  "info": {
+    "singularName": "resume-item",
+    "pluralName": "resume-items",
+    "displayName": "ResumeItem",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "resume_item"
+    }
+  }
+}
