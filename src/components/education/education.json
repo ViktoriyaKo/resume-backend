@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_education_educations",
+  "info": {
+    "displayName": "Education",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "school": {
+      "type": "string"
+    },
+    "degree": {
+      "type": "string"
+    },
+    "specialty": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "city": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "string"
+    },
+    "endDate": {
+      "type": "string"
+    },
+    "uuid": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}

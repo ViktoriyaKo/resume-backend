@@ -15,11 +15,44 @@
     "slug": {
       "type": "string"
     },
+    "employment": {
+      "type": "component",
+      "repeatable": true,
+      "component": "experience.experience"
+    },
+    "education": {
+      "type": "component",
+      "repeatable": true,
+      "component": "education.education",
+      "required": false,
+      "min": 1
+    },
+    "course": {
+      "type": "component",
+      "repeatable": true,
+      "component": "education.education"
+    },
+    "contact": {
+      "displayName": "Contact",
+      "type": "component",
+      "repeatable": false,
+      "component": "contact.contact"
+    },
+    "summary": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbarBalloon"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "skills": {
+      "type": "blocks"
+    },
     "user": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "resume_item"
+      "inversedBy": "resume_items"
     }
   }
 }

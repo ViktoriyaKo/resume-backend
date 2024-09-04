@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_contact_contacts",
+  "info": {
+    "displayName": "Contact",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "job": {
+      "type": "string"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "drivingLicense": {
+      "type": "boolean"
+    }
+  }
+}

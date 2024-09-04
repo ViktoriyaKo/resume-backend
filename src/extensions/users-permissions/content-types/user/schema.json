@@ -65,11 +65,11 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "resume_item": {
+    "resume_items": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::resume-item.resume-item",
-      "inversedBy": "user"
+      "mappedBy": "user"
     }
   }
 }

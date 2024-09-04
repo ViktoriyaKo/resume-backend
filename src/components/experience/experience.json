@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_experience_experiences",
+  "info": {
+    "displayName": "Experience"
+  },
+  "options": {},
+  "attributes": {
+    "job": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "city": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "employer": {
+      "type": "string"
+    }
+  }
+}
