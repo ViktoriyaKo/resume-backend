@@ -45,14 +45,63 @@
       },
       "customField": "plugin::ckeditor5.CKEditor"
     },
-    "skills": {
-      "type": "blocks"
-    },
     "user": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
       "inversedBy": "resume_items"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "languages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "language.language"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "link.link"
+    },
+    "design": {
+      "type": "string"
+    },
+    "secondaryColor": {
+      "type": "string"
+    },
+    "primaryColor": {
+      "type": "string"
+    },
+    "titles": {
+      "type": "component",
+      "repeatable": false,
+      "component": "titles.titles"
+    },
+    "skills": {
+      "type": "customField",
+      "options": {
+        "preset": "toolbarBalloon"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "cover": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

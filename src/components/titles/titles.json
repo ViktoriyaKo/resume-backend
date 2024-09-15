@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_titles_titles",
+  "info": {
+    "displayName": "Titles",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "string",
+      "default": "Social links & Websites"
+    },
+    "skills": {
+      "type": "string",
+      "default": "Skills"
+    },
+    "summary": {
+      "type": "string",
+      "default": "Professional Summary"
+    },
+    "personal": {
+      "type": "string",
+      "default": "Personal Details"
+    },
+    "education": {
+      "type": "string",
+      "default": "Education"
+    },
+    "employment": {
+      "type": "string",
+      "default": "Expirience"
+    },
+    "course": {
+      "type": "string",
+      "default": "Courses"
+    },
+    "languages": {
+      "type": "string",
+      "default": "Languages"
+    }
+  }
+}

@@ -4,10 +4,47 @@ export interface LanguageLanguage extends Schema.Component {
   collectionName: 'components_language_languages';
   info: {
     displayName: 'Language';
+    description: '';
   };
   attributes: {
-    language: Attribute.String;
-    level: Attribute.String;
+    languagesName: Attribute.String;
+    languagesLevel: Attribute.String;
+    uuid: Attribute.String;
+  };
+}
+
+export interface TitlesTitles extends Schema.Component {
+  collectionName: 'components_titles_titles';
+  info: {
+    displayName: 'Titles';
+    description: '';
+  };
+  attributes: {
+    link: Attribute.String & Attribute.DefaultTo<'Social links & Websites'>;
+    skills: Attribute.String & Attribute.DefaultTo<'Skills'>;
+    summary: Attribute.String & Attribute.DefaultTo<'Professional Summary'>;
+    personal: Attribute.String & Attribute.DefaultTo<'Personal Details'>;
+    education: Attribute.String & Attribute.DefaultTo<'Education'>;
+    employment: Attribute.String & Attribute.DefaultTo<'Expirience'>;
+    course: Attribute.String & Attribute.DefaultTo<'Courses'>;
+    languages: Attribute.String & Attribute.DefaultTo<'Languages'>;
+  };
+}
+
+export interface ExperienceExperience extends Schema.Component {
+  collectionName: 'components_experience_experiences';
+  info: {
+    displayName: 'Experience';
+    description: '';
+  };
+  attributes: {
+    job: Attribute.String;
+    employer: Attribute.String;
+    city: Attribute.String;
+    description: Attribute.Text;
+    startDate: Attribute.String;
+    endDate: Attribute.String;
+    uuid: Attribute.String;
   };
 }
 
@@ -15,10 +52,12 @@ export interface LinkLink extends Schema.Component {
   collectionName: 'components_link_links';
   info: {
     displayName: 'Link';
+    description: '';
   };
   attributes: {
     label: Attribute.String;
     link: Attribute.String;
+    uuid: Attribute.String;
   };
 }
 
@@ -36,22 +75,7 @@ export interface EducationEducation extends Schema.Component {
     city: Attribute.String;
     startDate: Attribute.String;
     endDate: Attribute.String;
-    uuid: Attribute.String & Attribute.Unique;
-  };
-}
-
-export interface ExperienceExperience extends Schema.Component {
-  collectionName: 'components_experience_experiences';
-  info: {
-    displayName: 'Experience';
-  };
-  attributes: {
-    job: Attribute.String;
-    startDate: Attribute.Date;
-    endDate: Attribute.Date;
-    city: Attribute.String;
-    description: Attribute.Text;
-    employer: Attribute.String;
+    uuid: Attribute.String;
   };
 }
 
@@ -63,7 +87,6 @@ export interface ContactContact extends Schema.Component {
   };
   attributes: {
     job: Attribute.String;
-    photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     firstName: Attribute.String;
     lastName: Attribute.String;
     email: Attribute.String;
@@ -79,9 +102,10 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'language.language': LanguageLanguage;
+      'titles.titles': TitlesTitles;
+      'experience.experience': ExperienceExperience;
       'link.link': LinkLink;
       'education.education': EducationEducation;
-      'experience.experience': ExperienceExperience;
       'contact.contact': ContactContact;
     }
   }

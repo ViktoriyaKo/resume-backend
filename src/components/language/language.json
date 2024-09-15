@@ -1,14 +1,18 @@
 {
   "collectionName": "components_language_languages",
   "info": {
-    "displayName": "Language"
+    "displayName": "Language",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "language": {
+    "languagesName": {
       "type": "string"
     },
-    "level": {
+    "languagesLevel": {
+      "type": "string"
+    },
+    "uuid": {
       "type": "string"
     }
   }

@@ -1,18 +1,16 @@
 {
   "collectionName": "components_experience_experiences",
   "info": {
-    "displayName": "Experience"
+    "displayName": "Experience",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "job": {
       "type": "string"
     },
-    "startDate": {
-      "type": "date"
-    },
-    "endDate": {
-      "type": "date"
+    "employer": {
+      "type": "string"
     },
     "city": {
       "type": "string"
@@ -20,7 +18,13 @@
     "description": {
       "type": "text"
     },
-    "employer": {
+    "startDate": {
+      "type": "string"
+    },
+    "endDate": {
+      "type": "string"
+    },
+    "uuid": {
       "type": "string"
     }
   }

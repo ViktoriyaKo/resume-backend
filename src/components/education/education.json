@@ -29,7 +29,7 @@
     },
     "uuid": {
       "type": "string",
-      "unique": true
+      "unique": false
     }
   }
 }
