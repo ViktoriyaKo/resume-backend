@@ -1,18 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface LanguageLanguage extends Schema.Component {
-  collectionName: 'components_language_languages';
-  info: {
-    displayName: 'Language';
-    description: '';
-  };
-  attributes: {
-    languagesName: Attribute.String;
-    languagesLevel: Attribute.String;
-    uuid: Attribute.String;
-  };
-}
-
 export interface TitlesTitles extends Schema.Component {
   collectionName: 'components_titles_titles';
   info: {
@@ -31,6 +18,32 @@ export interface TitlesTitles extends Schema.Component {
   };
 }
 
+export interface LinkLink extends Schema.Component {
+  collectionName: 'components_link_links';
+  info: {
+    displayName: 'Link';
+    description: '';
+  };
+  attributes: {
+    label: Attribute.String;
+    link: Attribute.String;
+    uuid: Attribute.String;
+  };
+}
+
+export interface LanguageLanguage extends Schema.Component {
+  collectionName: 'components_language_languages';
+  info: {
+    displayName: 'Language';
+    description: '';
+  };
+  attributes: {
+    languagesName: Attribute.String;
+    languagesLevel: Attribute.String;
+    uuid: Attribute.String;
+  };
+}
+
 export interface ExperienceExperience extends Schema.Component {
   collectionName: 'components_experience_experiences';
   info: {
@@ -44,19 +57,6 @@ export interface ExperienceExperience extends Schema.Component {
     description: Attribute.Text;
     startDate: Attribute.String;
     endDate: Attribute.String;
-    uuid: Attribute.String;
-  };
-}
-
-export interface LinkLink extends Schema.Component {
-  collectionName: 'components_link_links';
-  info: {
-    displayName: 'Link';
-    description: '';
-  };
-  attributes: {
-    label: Attribute.String;
-    link: Attribute.String;
     uuid: Attribute.String;
   };
 }
@@ -101,10 +101,10 @@ export interface ContactContact extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'language.language': LanguageLanguage;
       'titles.titles': TitlesTitles;
-      'experience.experience': ExperienceExperience;
       'link.link': LinkLink;
+      'language.language': LanguageLanguage;
+      'experience.experience': ExperienceExperience;
       'education.education': EducationEducation;
       'contact.contact': ContactContact;
     }
