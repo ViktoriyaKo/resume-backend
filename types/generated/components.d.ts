@@ -18,19 +18,6 @@ export interface TitlesTitles extends Schema.Component {
   };
 }
 
-export interface LinkLink extends Schema.Component {
-  collectionName: 'components_link_links';
-  info: {
-    displayName: 'Link';
-    description: '';
-  };
-  attributes: {
-    label: Attribute.String;
-    link: Attribute.String;
-    uuid: Attribute.String;
-  };
-}
-
 export interface LanguageLanguage extends Schema.Component {
   collectionName: 'components_language_languages';
   info: {
@@ -40,6 +27,19 @@ export interface LanguageLanguage extends Schema.Component {
   attributes: {
     languagesName: Attribute.String;
     languagesLevel: Attribute.String;
+    uuid: Attribute.String;
+  };
+}
+
+export interface LinkLink extends Schema.Component {
+  collectionName: 'components_link_links';
+  info: {
+    displayName: 'Link';
+    description: '';
+  };
+  attributes: {
+    label: Attribute.String;
+    link: Attribute.String;
     uuid: Attribute.String;
   };
 }
@@ -55,24 +55,6 @@ export interface ExperienceExperience extends Schema.Component {
     employer: Attribute.String;
     city: Attribute.String;
     description: Attribute.Text;
-    startDate: Attribute.String;
-    endDate: Attribute.String;
-    uuid: Attribute.String;
-  };
-}
-
-export interface EducationEducation extends Schema.Component {
-  collectionName: 'components_education_educations';
-  info: {
-    displayName: 'Education';
-    description: '';
-  };
-  attributes: {
-    school: Attribute.String;
-    degree: Attribute.String;
-    specialty: Attribute.String;
-    description: Attribute.Text;
-    city: Attribute.String;
     startDate: Attribute.String;
     endDate: Attribute.String;
     uuid: Attribute.String;
@@ -98,15 +80,33 @@ export interface ContactContact extends Schema.Component {
   };
 }
 
+export interface EducationEducation extends Schema.Component {
+  collectionName: 'components_education_educations';
+  info: {
+    displayName: 'Education';
+    description: '';
+  };
+  attributes: {
+    school: Attribute.String;
+    degree: Attribute.String;
+    specialty: Attribute.String;
+    description: Attribute.Text;
+    city: Attribute.String;
+    startDate: Attribute.String;
+    endDate: Attribute.String;
+    uuid: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'titles.titles': TitlesTitles;
-      'link.link': LinkLink;
       'language.language': LanguageLanguage;
+      'link.link': LinkLink;
       'experience.experience': ExperienceExperience;
-      'education.education': EducationEducation;
       'contact.contact': ContactContact;
+      'education.education': EducationEducation;
     }
   }
 }

@@ -18,7 +18,7 @@ module.exports = [
     name: "strapi::cors",
     config: {
       enabled: true,
-      origin: ["http://localhost:3000", "https://www.avsievich.eu"],
+      origin: ["http://localhost:3000", "https://create-resume.online"],
       methods: ["GET", "POST", "PUT", "PATCH", "OPTIONS"],
       headers: ["Content-Type", "Authorization", "Origin", "Accept"],
       keepHeaderOnError: true,
