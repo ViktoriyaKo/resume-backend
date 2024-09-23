@@ -8,7 +8,7 @@
   "attributes": {
     "link": {
       "type": "string",
-      "default": "Social links & Websites"
+      "default": "Social links"
     },
     "skills": {
       "type": "string",
@@ -16,11 +16,11 @@
     },
     "summary": {
       "type": "string",
-      "default": "Professional Summary"
+      "default": "Summary"
     },
     "personal": {
       "type": "string",
-      "default": "Personal Details"
+      "default": "Contact Details"
     },
     "education": {
       "type": "string",
@@ -28,7 +28,7 @@
     },
     "employment": {
       "type": "string",
-      "default": "Expirience"
+      "default": "Experience"
     },
     "course": {
       "type": "string",
