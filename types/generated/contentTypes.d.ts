@@ -1124,6 +1124,7 @@ export interface ApiTemplateTemplate extends Schema.CollectionType {
     singularName: 'template';
     pluralName: 'templates';
     displayName: 'Template';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1135,10 +1136,9 @@ export interface ApiTemplateTemplate extends Schema.CollectionType {
   };
   attributes: {
     slug: Attribute.String &
-      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     link: Attribute.String &

@@ -1,5 +1,18 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface LinkLink extends Schema.Component {
+  collectionName: 'components_link_links';
+  info: {
+    displayName: 'Link';
+    description: '';
+  };
+  attributes: {
+    label: Attribute.String;
+    link: Attribute.String;
+    uuid: Attribute.String;
+  };
+}
+
 export interface TitlesTitles extends Schema.Component {
   collectionName: 'components_titles_titles';
   info: {
@@ -7,12 +20,12 @@ export interface TitlesTitles extends Schema.Component {
     description: '';
   };
   attributes: {
-    link: Attribute.String & Attribute.DefaultTo<'Social links & Websites'>;
+    link: Attribute.String & Attribute.DefaultTo<'Social links'>;
     skills: Attribute.String & Attribute.DefaultTo<'Skills'>;
-    summary: Attribute.String & Attribute.DefaultTo<'Professional Summary'>;
-    personal: Attribute.String & Attribute.DefaultTo<'Personal Details'>;
+    summary: Attribute.String & Attribute.DefaultTo<'Summary'>;
+    personal: Attribute.String & Attribute.DefaultTo<'Contact Details'>;
     education: Attribute.String & Attribute.DefaultTo<'Education'>;
-    employment: Attribute.String & Attribute.DefaultTo<'Expirience'>;
+    employment: Attribute.String & Attribute.DefaultTo<'Experience'>;
     course: Attribute.String & Attribute.DefaultTo<'Courses'>;
     languages: Attribute.String & Attribute.DefaultTo<'Languages'>;
   };
@@ -31,19 +44,6 @@ export interface LanguageLanguage extends Schema.Component {
   };
 }
 
-export interface LinkLink extends Schema.Component {
-  collectionName: 'components_link_links';
-  info: {
-    displayName: 'Link';
-    description: '';
-  };
-  attributes: {
-    label: Attribute.String;
-    link: Attribute.String;
-    uuid: Attribute.String;
-  };
-}
-
 export interface ExperienceExperience extends Schema.Component {
   collectionName: 'components_experience_experiences';
   info: {
@@ -55,6 +55,24 @@ export interface ExperienceExperience extends Schema.Component {
     employer: Attribute.String;
     city: Attribute.String;
     description: Attribute.Text;
+    startDate: Attribute.String;
+    endDate: Attribute.String;
+    uuid: Attribute.String;
+  };
+}
+
+export interface EducationEducation extends Schema.Component {
+  collectionName: 'components_education_educations';
+  info: {
+    displayName: 'Education';
+    description: '';
+  };
+  attributes: {
+    school: Attribute.String;
+    degree: Attribute.String;
+    specialty: Attribute.String;
+    description: Attribute.Text;
+    city: Attribute.String;
     startDate: Attribute.String;
     endDate: Attribute.String;
     uuid: Attribute.String;
@@ -80,33 +98,15 @@ export interface ContactContact extends Schema.Component {
   };
 }
 
-export interface EducationEducation extends Schema.Component {
-  collectionName: 'components_education_educations';
-  info: {
-    displayName: 'Education';
-    description: '';
-  };
-  attributes: {
-    school: Attribute.String;
-    degree: Attribute.String;
-    specialty: Attribute.String;
-    description: Attribute.Text;
-    city: Attribute.String;
-    startDate: Attribute.String;
-    endDate: Attribute.String;
-    uuid: Attribute.String;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'link.link': LinkLink;
       'titles.titles': TitlesTitles;
       'language.language': LanguageLanguage;
-      'link.link': LinkLink;
       'experience.experience': ExperienceExperience;
-      'contact.contact': ContactContact;
       'education.education': EducationEducation;
+      'contact.contact': ContactContact;
     }
   }
 }
