@@ -1058,6 +1058,13 @@ export interface ApiResumeItemResumeItem extends Schema.CollectionType {
         }
       >;
     cover: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    additionalInfo: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbarBalloon';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
