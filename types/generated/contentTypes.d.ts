@@ -1181,6 +1181,37 @@ export interface ApiResumeItemResumeItem extends Schema.CollectionType {
   };
 }
 
+export interface ApiReviewReview extends Schema.CollectionType {
+  collectionName: 'reviews';
+  info: {
+    singularName: 'review';
+    pluralName: 'reviews';
+    displayName: 'Review';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    user: Attribute.String;
+    review: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::review.review',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::review.review',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRouterRouter extends Schema.CollectionType {
   collectionName: 'routers';
   info: {
@@ -1417,6 +1448,7 @@ declare module '@strapi/types' {
       'api::page.page': ApiPagePage;
       'api::request.request': ApiRequestRequest;
       'api::resume-item.resume-item': ApiResumeItemResumeItem;
+      'api::review.review': ApiReviewReview;
       'api::router.router': ApiRouterRouter;
       'api::step.step': ApiStepStep;
       'api::template.template': ApiTemplateTemplate;

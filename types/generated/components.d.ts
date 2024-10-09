@@ -31,19 +31,6 @@ export interface LinkLink extends Schema.Component {
   };
 }
 
-export interface LanguageLanguage extends Schema.Component {
-  collectionName: 'components_language_languages';
-  info: {
-    displayName: 'Language';
-    description: '';
-  };
-  attributes: {
-    languagesName: Attribute.String;
-    languagesLevel: Attribute.String;
-    uuid: Attribute.String;
-  };
-}
-
 export interface ExperienceExperience extends Schema.Component {
   collectionName: 'components_experience_experiences';
   info: {
@@ -57,6 +44,19 @@ export interface ExperienceExperience extends Schema.Component {
     description: Attribute.Text;
     startDate: Attribute.String;
     endDate: Attribute.String;
+    uuid: Attribute.String;
+  };
+}
+
+export interface LanguageLanguage extends Schema.Component {
+  collectionName: 'components_language_languages';
+  info: {
+    displayName: 'Language';
+    description: '';
+  };
+  attributes: {
+    languagesName: Attribute.String;
+    languagesLevel: Attribute.String;
     uuid: Attribute.String;
   };
 }
@@ -103,8 +103,8 @@ declare module '@strapi/types' {
     export interface Components {
       'titles.titles': TitlesTitles;
       'link.link': LinkLink;
-      'language.language': LanguageLanguage;
       'experience.experience': ExperienceExperience;
+      'language.language': LanguageLanguage;
       'education.education': EducationEducation;
       'contact.contact': ContactContact;
     }
