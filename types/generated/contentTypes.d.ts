@@ -1035,11 +1035,16 @@ export interface ApiPagePage extends Schema.CollectionType {
         {
           preset: 'toolbarBalloon';
         }
-      >;
-    slug: Attribute.String &
+      > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     title: Attribute.String &
