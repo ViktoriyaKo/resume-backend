@@ -987,12 +987,14 @@ export interface ApiImageImage extends Schema.SingleType {
     singularName: 'image';
     pluralName: 'images';
     displayName: 'Image';
+    description: '';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
     stepsImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    ogImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1334,6 +1336,51 @@ export interface ApiTemplateTemplate extends Schema.CollectionType {
   };
 }
 
+export interface ApiTranslationTranslation extends Schema.SingleType {
+  collectionName: 'translations';
+  info: {
+    singularName: 'translation';
+    pluralName: 'translations';
+    displayName: 'Translation';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    meta_keywords: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::translation.translation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::translation.translation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::translation.translation',
+      'oneToMany',
+      'api::translation.translation'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1362,6 +1409,7 @@ declare module '@strapi/types' {
       'api::router.router': ApiRouterRouter;
       'api::step.step': ApiStepStep;
       'api::template.template': ApiTemplateTemplate;
+      'api::translation.translation': ApiTranslationTranslation;
     }
   }
 }
