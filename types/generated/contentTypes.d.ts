@@ -982,6 +982,33 @@ export interface ApiBlogBlog extends Schema.CollectionType {
   };
 }
 
+export interface ApiChatChat extends Schema.CollectionType {
+  collectionName: 'chats';
+  info: {
+    singularName: 'chat';
+    pluralName: 'chats';
+    displayName: 'Chat';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    chatId: Attribute.UID;
+    messages: Attribute.Relation<
+      'api::chat.chat',
+      'manyToMany',
+      'api::message.message'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::chat.chat', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::chat.chat', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiImageImage extends Schema.SingleType {
   collectionName: 'images';
   info: {
@@ -1006,6 +1033,41 @@ export interface ApiImageImage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::image.image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMessageMessage extends Schema.CollectionType {
+  collectionName: 'messages';
+  info: {
+    singularName: 'message';
+    pluralName: 'messages';
+    displayName: 'Message';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    message: Attribute.Text;
+    chats: Attribute.Relation<
+      'api::message.message',
+      'manyToMany',
+      'api::chat.chat'
+    >;
+    sender: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::message.message',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::message.message',
       'oneToOne',
       'admin::user'
     > &
@@ -1445,7 +1507,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::advantage.advantage': ApiAdvantageAdvantage;
       'api::blog.blog': ApiBlogBlog;
+      'api::chat.chat': ApiChatChat;
       'api::image.image': ApiImageImage;
+      'api::message.message': ApiMessageMessage;
       'api::page.page': ApiPagePage;
       'api::request.request': ApiRequestRequest;
       'api::resume-item.resume-item': ApiResumeItemResumeItem;

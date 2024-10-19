@@ -26,4 +26,35 @@ module.exports = ({ env }) => ({
       introspection: true,
     },
   },
+  io: {
+    enabled: true,
+    config: {
+      socket: {
+        serverOptions: {
+          cors: {
+            origin: "http://localhost:3000",
+            methods: ["GET", "POST", "PUT"],
+          },
+        },
+      },
+      contentTypes: ["api::message.message"],
+      events: [
+        {
+          name: "connection",
+          handler: ({ strapi }, socket) => {
+            strapi.log.info(
+              `[io] a new client with id ${socket.id} has connected`
+            );
+
+            socket.on("send-message", async (messageData) => {
+              strapi.$io.raw({
+                event: "receive-message",
+                data: messageData,
+              });
+            });
+          },
+        },
+      ],
+    },
+  },
 });
