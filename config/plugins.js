@@ -32,7 +32,7 @@ module.exports = ({ env }) => ({
       socket: {
         serverOptions: {
           cors: {
-            origin: env("CLIENT_BASE_URL"),
+            origin: "https://create-resume.online",
             methods: ["GET", "POST", "PUT"],
           },
         },
